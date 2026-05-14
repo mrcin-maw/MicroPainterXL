@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+  <title>MicroPainterXL</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div id="toolbar">
+    <div class="tb-sect">
+      <button data-zoom="1">1x</button>
+      <button data-zoom="2">2x</button>
+      <button data-zoom="4">4x</button>
+      <button data-zoom="8">8x</button>
+      <label class="tb-check"><input id="gridToggle" type="checkbox" checked/><span>Grid</span></label>
+    </div>
+    <div class="tb-sect">
+      <button id="clearBtn">Wyczyść</button>
+      <button id="exportLinearBtn">Exp&nbsp;J1</button>
+      <button id="exportCharBtn">Exp&nbsp;J2</button>
+      <button id="exportPngBtn">PNG</button>
+      <label class="file-label">Import&nbsp;JSON<input id="importJsonInput" type="file" accept=".json"/></label>
+      <label class="file-label">Paleta<input id="importPaletteInput" type="file" accept=".pal,.act"/></label>
+    </div>
+    <div id="colorBtnsWrap" class="tb-sect"></div>
+    <span id="statusEl" class="status"></span>
+  </div>
+
+  <div id="mainArea">
+    <div id="canvasOuter">
+      <div id="canvasWrap">
+        <canvas id="mainCanvas"></canvas>
+        <canvas id="previewCanvas" width="40" height="25"></canvas>
+        <div id="rowLabels"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Row colour popup -->
+  <div id="rowPopup" class="popup" hidden>
+    <div class="popup-title" id="rowPopupTitle">Wiersz 0</div>
+    <div id="rowPopupColors"></div>
+    <button id="rowPopupClose" class="popup-close">Zamknij</button>
+  </div>
+
+  <!-- Palette picker popup -->
+  <div id="palPicker" class="popup" hidden>
+    <div class="popup-title" id="palPickerTitle">Wybierz kolor</div>
+    <canvas id="palCanvas" width="256" height="256"></canvas>
+    <div id="palHoverInfo" class="pal-hover-info">&nbsp;</div>
+    <button id="palResetBtn" class="popup-reset" hidden>↩ Przywróć globalny</button>
+    <button id="palPickerClose" class="popup-close">Zamknij</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

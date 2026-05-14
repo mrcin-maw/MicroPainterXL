@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MicroPainterXL – graficzny edytor pikselowy dla Atari 8-bit XL/XE.">
+  <meta name="keywords" content="Atari, 8-bit, XL, XE, GTIA, pixel editor, MicroPainter, retro">
+  <meta name="author" content="mrcin-maw">
+  <title>MicroPainterXL – edytor grafiki Atari 8-bit</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0a0f1a 0%, #1a2a1a 50%, #0a0f1a 100%);
+      color: #e0e8e0; line-height: 1.6; min-height: 100vh;
+    }
+    .container { max-width: 860px; margin: 0 auto; padding: 24px 20px; }
+    header {
+      text-align: center; padding: 40px 20px;
+      background: rgba(10,30,10,0.7); border-radius: 16px; margin-bottom: 36px;
+      border: 1px solid rgba(80,200,80,0.25); box-shadow: 0 0 40px rgba(80,200,80,0.1);
+    }
+    h1 {
+      font-size: 2.8em; margin-bottom: 14px;
+      background: linear-gradient(45deg,#52e86b,#a8ff78);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .subtitle { font-size: 1.15em; color: #80c890; margin-bottom: 8px; }
+    .tech-badges { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:18px; }
+    .badge {
+      background:rgba(80,200,80,0.12); border:1px solid rgba(80,200,80,0.35);
+      border-radius:20px; padding:4px 14px; font-size:12px; color:#a0d8a0;
+    }
+    .launch-btn {
+      display:inline-block; margin-top:28px; padding:14px 42px;
+      background:linear-gradient(135deg,#2a8a3a,#3aaa4a); color:#fff;
+      font-size:1.1em; font-weight:700; border-radius:10px; text-decoration:none;
+      letter-spacing:.5px; box-shadow:0 0 20px rgba(60,180,60,0.4);
+      transition:box-shadow .2s, transform .1s;
+    }
+    .launch-btn:hover { box-shadow:0 0 32px rgba(60,200,60,0.65); transform:translateY(-1px); }
+    .launch-btn:active { transform:translateY(1px); }
+    .cards {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:20px; margin-bottom:32px;
+    }
+    .card {
+      background:rgba(15,30,15,0.7); border:1px solid rgba(80,200,80,0.2);
+      border-radius:12px; padding:20px;
+    }
+    .card h3 { color:#7fd3a0; margin-bottom:10px; font-size:1em; text-transform:uppercase; letter-spacing:1px; }
+    .card ul { padding-left:18px; }
+    .card li { font-size:.92em; color:#b0c8b0; margin-bottom:4px; }
+    footer { text-align:center; padding:20px; color:rgba(160,200,160,0.4); font-size:12px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>MicroPainterXL</h1>
+      <div class="subtitle">Graficzny edytor pikselowy · Atari 8-bit XL/XE · GTIA Gr.15</div>
+      <div class="tech-badges">
+        <span class="badge">160×200 px</span>
+        <span class="badge">4 kolory + tło</span>
+        <span class="badge">Paleta 256 kolorów GTIA</span>
+        <span class="badge">Grid 4×8 chunki</span>
+        <span class="badge">Eksport JSON / PNG</span>
+      </div>
+      <a href="editor.html" class="launch-btn">&#9654;  Uruchom edytor</a>
+    </header>
+    <div class="cards">
+      <div class="card">
+        <h3>&#127776; Rysowanie</h3>
+        <ul>
+          <li>Piksele 2:1 (proporcja ekranu Atari)</li>
+          <li>5 kolorów: BAK, COL1, COL2, COL3, COL4</li>
+          <li>Reguła COL3&harr;COL4 (chunki 4×8)</li>
+          <li>Zoom 1x / 2x / 4x / 8x</li>
+          <li>Siatka pixel + chunki</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>&#127812; Paleta</h3>
+        <ul>
+          <li>256 kolorów GTIA (16×16 picker)</li>
+          <li>Globalne kolory ekranu (toolbar)</li>
+          <li>Indywidualny zestaw kolorów per-wiersz</li>
+          <li>Wczytywanie plików .pal / .act</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>&#128190; Eksport</h3>
+        <ul>
+          <li>JSON liniowy (linear-v1)</li>
+          <li>JSON znakowy (char-v1)</li>
+          <li>PNG 320×200</li>
+          <li>Automatyczny powrót do stanu po zamknięciu</li>
+        </ul>
+      </div>
+    </div>
+    <footer>
+      MicroPainterXL &middot; mrcin-maw &middot;
+      <a href="https://github.com/mrcin-maw/_myApps_" style="color:#5a8;text-decoration:none;">GitHub</a>
+    </footer>
+  </div>
+</body>
+</html>
